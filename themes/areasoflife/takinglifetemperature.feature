@@ -1,9 +1,7 @@
 feature: Taking Life Temperature
-
-Description: As an apprentice, I need to measure how I feel in the different areas of my life.
+As an apprentice, I need to measure how I feel in the different areas of my life.
 
 Scenario 1: Measuring an area of life
-
 Given an Area of Life
 When I gradually express how I feel about that area of life at the current moment
 	And I can accept the selected measure
