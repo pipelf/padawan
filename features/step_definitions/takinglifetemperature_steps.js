@@ -1,12 +1,18 @@
-var PadawanWorld = require('../support/world').world;
+
+var PadawanWorld = require('../support/world').World;
 
 var lifetemperatureSteps = function() {
-	var Give = When = Then = this.defineStep;
-	this.world =PadawanWorld;
+	var self = this;
+	var Given = When = Then = this.defineStep;
+	this.world = new PadawanWorld();
+
+	  
 
 	this.Given(/^an Area of Life$/, function (callback) {
 	  // Write code here that turns the phrase above into concrete actions
-	  callback.pending();
+
+		self.world.visit('http://google.com');
+		//callback.pending();
 	});
 
 	this.When(/^I gradually express how I feel about that area of life at the current moment$/, function (callback) {

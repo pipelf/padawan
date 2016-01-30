@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/pipelf/padawan#readme",
   "devDependencies": {
-    "cucumber": "^0.9.4"
+    "cucumber": "^0.9.4",
+    "zombie": "^2.0.8"
   }
 }
