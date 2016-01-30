@@ -1,0 +1,22 @@
+{
+  "name": "padawan",
+  "version": "1.0.0",
+  "description": "Nail your intentions, act on your goal.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipelf/padawan.git"
+  },
+  "author": "Luis F. Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pipelf/padawan/issues"
+  },
+  "homepage": "https://github.com/pipelf/padawan#readme",
+  "devDependencies": {
+    "cucumber": "^0.9.4"
+  }
+}
