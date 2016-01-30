@@ -11,7 +11,7 @@ var lifetemperatureSteps = function() {
 	this.Given(/^an Area of Life$/, function (callback) {
 	  // Write code here that turns the phrase above into concrete actions
 
-		self.world.visit('http://google.com');
+		//self.world.visit('http://google.com');
 		//callback.pending();
 	});
 
