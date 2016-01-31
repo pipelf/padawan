@@ -6,12 +6,11 @@ var lifetemperatureSteps = function() {
 	var Given = When = Then = this.defineStep;
 	this.world = new PadawanWorld();
 
-	  
-
 	this.Given(/^an Area of Life$/, function (callback) {
 	  // Write code here that turns the phrase above into concrete actions
 
-		//self.world.visit('http://google.com');
+		self.world.visit('/coolapp.html');
+		self.world.assert('h1', 'Welcome');
 		//callback.pending();
 	});
 
