@@ -129,40 +129,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
 
             <section data-route="life">
-              <!-- <paper-material elevation="1"> -->
-                <iron-pages class="temp" selected="0">
-                  
-                  <paper-material elevation="1">
-                    <h4>Areas of Life</h4>
-                    <div>One</div>
-                  </paper-material>
-
-                  <paper-material elevation="1">
-                    <h4>Areas of Life</h4>
-                    <div>Two</div>
-                  </paper-material>
-                  
-                  <paper-material elevation="1">
-                    <h4>Areas of Life</h4>
-                    <div>Three</div>
-                  </paper-material>
-
-                  </iron-pages>
-                  <script>
-                    document.addEventListener('click', function(e) {
-                      var pages = document.querySelector('.temp');
-                      pages.selectNext();
-                    });
-                  </script>
-              <!-- </paper-material> -->
+                <areas-rating />
             </section>
-
-           <!--  <section data-route="contact">
-              <paper-material elevation="1">
-                <h2 class="page-title">Contact</h2>
-                <p>This is the contact section</p>
-              </paper-material>
-            </section> -->
           </iron-pages>
         </div>
       </paper-scroll-header-panel>

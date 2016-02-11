@@ -48,7 +48,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     page('/life', function() {
       app.route = 'life';
       var header = Polymer.dom(document).querySelector('#headerPanelMain');
-      header.scroll(100, true);
+      header.scroll(120, true);
+
+      var pages = document.querySelector('.la-pages');
+
+      // var next = Polymer.dom(document).querySelector('.lfnext');
+      // next.addEventListener('click', function () {
+        
+      //   pages.selectNext();
+      // });
+
+      // var pre = Polymer.dom(document).querySelector('.lfpre');
+      // pre.addEventListener('click', function () {
+      //   pages.selectPrevious();
+      // });
+
     });
 
     // page('/users', function() {
