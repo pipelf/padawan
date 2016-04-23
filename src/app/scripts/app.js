@@ -21,6 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // Uncomment app.baseURL below and
     // set app.baseURL to '/your-pathname/' if running from folder in production
     // app.baseUrl = '/polymer-starter-kit/';
+    console.log('');
   }
 
   app.displayInstalledToast = function() {
@@ -79,38 +80,46 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   };
 
   app.areasoflife = [
-                    {
-                        name: 'Spiritual',
-                        description: 'You can interpret this one as you like. It could be your faith, mental health, personal journeys or mindset.'
-                    },
-                    {
-                        name: 'Health',
-                        description: 'Are you happy with your physical health and wellness?'
-                    },
-                    {
-                        name: 'Personal Passions',
-                        description: 'Do you have personal passion projects, hobbies or fun activities that fulfill you?'
-                    },
-                    {
-                        name: 'Friends',
-                        description: ' How is your social life? Your friendships and support system?'
-                    },
-                    {
-                        name: 'Family',
-                        description: 'How are your personal relationships? Your partner or spouse?'
-                    },
-                    {
-                        name: 'Business',
-                        description: 'How do you feel about your work, career or business effectiveness and success?'
-                    },
-                    {
-                        name: 'Career',
-                        description: ''
-                    },
-                    {
-                        name: 'Community Service',
-                        description: ''
-                    }
-                    ];
+    {
+      id: 1, 
+      name: 'Spiritual',
+      description: 'You can interpret this one as you like. It could be your faith, mental health, personal journeys or mindset.'
+    },
+    {
+      id:2,
+      name: 'Health',
+      description: 'Are you happy with your physical health and wellness?'
+    },
+    {
+      id:3,
+      name: 'Personal Passions',
+      description: 'Do you have personal passion projects, hobbies or fun activities that fulfill you?'
+    },
+    {
+      id:4,
+      name: 'Friends',
+      description: ' How is your social life? Your friendships and support system?'
+    },
+    {
+      id:5,
+      name: 'Family',
+      description: 'How are your personal relationships? Your partner or spouse?'
+    },
+    {
+      id:6,
+      name: 'Business',
+      description: 'How do you feel about your work, career or business effectiveness and success?'
+    },
+    {
+      id:7,
+      name: 'Career',
+      description: ''
+    },
+    {
+      id:8,
+      name: 'Community Service',
+      description: ''
+    }
+];
 
 })(document);

@@ -1,5 +1,5 @@
 <!-- 
-Areas rating element
+    Areas rating element
 -->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
@@ -33,6 +33,10 @@ Areas rating element
                 width: 3em;
             }
 
+            .area-header {
+                height: 100px;
+            }
+
           @media (max-width: 600px) {
                 paper-material {
                   --menu-container-display: none;
@@ -44,27 +48,29 @@ Areas rating element
 
           /* Tablet+ */
           @media (min-width: 601px) {
-            iron-pages {
-              padding: 48px 62px;
-            }
+                iron-pages {
+                  padding: 48px 62px;
+                }
 
-            paper-material {
-              width: calc(98% - 46px);
-              margin-bottom: 32px;
-              padding-left: 30px;
-              padding-right: 30px;
+                paper-material {
+                  width: calc(98% - 46px);
+                  margin-bottom: 32px;
+                  padding-left: 30px;
+                  padding-right: 30px;
+                }
             }
-
-  }
 		</style>
         <iron-pages class="la-pages" selected="0">
             <template is="dom-repeat" items="{{areas}}">
-                <paper-material elevation="2">
-                    <h2>{{item.name}}</h2>
-                    <p>{{item.description}}</p>
+                <!-- <area-rating area="[[item]]" /> -->
+                <paper-material elevation="2" class="area-box">
+                    <div class="area-header">
+                        <h2>{{item.name}}</h2>
+                        <p>{{item.description}}</p>
+                    </div>
                     <div class="centered">
-                        <paper-material elevation="1" class="lfrating">3</paper-material>
-                        <paper-slider id="slider" min="1" max="5" value="3" pin snaps step="1"></paper-slider>
+                        <paper-material id="rating-{{item.id}}" elevation="0" class="lfrating">3</paper-material>
+                        <paper-slider id="slider-{{item.id}}" data-index="{{item.id}}" min="1" max="5" value="3" pin snaps step="1"></paper-slider>
                   </div>
                 </paper-material>    
             </template>
@@ -86,11 +92,7 @@ Areas rating element
                     }
                 },
                 ready: function() {
-                    // var slider = this.querySelector('#slider');
-                    //   slider.addEventListener('change', function() {
-                    //   this.querySelector('.lfrating').textContent = slider.value;
-                    // });
-
+                    var self = this;
                     var pages = this.querySelector('.la-pages');
 
                     var next = this.querySelector('.lfnext');
@@ -104,41 +106,61 @@ Areas rating element
                         pages.selectPrevious();
                     });
 
-
                     this.areas = [
                     {
-                        name: 'Spiritual',
-                        description: 'You can interpret this one as you like. It could be your faith, mental health, personal journeys or mindset.'
+                      id: 1, 
+                      name: 'Spiritual',
+                      description: 'You can interpret this one as you like. It could be your faith, mental health, personal journeys or mindset.'
                     },
                     {
-                        name: 'Health',
-                        description: 'Are you happy with your physical health and wellness?'
+                      id:2,
+                      name: 'Health',
+                      description: 'Are you happy with your physical health and wellness?'
                     },
                     {
-                        name: 'Personal Passions',
-                        description: 'Do you have personal passion projects, hobbies or fun activities that fulfill you?'
+                      id:3,
+                      name: 'Personal Passions',
+                      description: 'Do you have personal passion projects, hobbies or fun activities that fulfill you?'
                     },
                     {
-                        name: 'Friends',
-                        description: ' How is your social life? Your friendships and support system?'
+                      id:4,
+                      name: 'Friends',
+                      description: ' How is your social life? Your friendships and support system?'
                     },
                     {
-                        name: 'Family',
-                        description: 'How are your personal relationships? Your partner or spouse?'
+                      id:5,
+                      name: 'Family',
+                      description: 'How are your personal relationships? Your partner or spouse?'
                     },
                     {
-                        name: 'Business',
-                        description: 'How do you feel about your work, career or business effectiveness and success?'
+                      id:6,
+                      name: 'Business',
+                      description: 'How do you feel about your work, career or business effectiveness and success?'
                     },
                     {
-                        name: 'Career',
-                        description: ''
+                      id:7,
+                      name: 'Career',
+                      description: ''
                     },
                     {
-                        name: 'Community Service',
-                        description: ''
+                      id:8,
+                      name: 'Community Service',
+                      description: ''
                     }
                     ];
+
+                    document.addEventListener('WebComponentsReady', function() {
+                        for(var i=0; i < self.areas.length; i++) {
+                            var slider = this.querySelector('#slider-'+ self.areas[i].id);
+                            slider.addEventListener('change', self.updaterating); 
+                        }
+                    });
+
+                    this.updaterating = function(e) {
+                        var ele = e.target;
+                        var s = document.querySelector('#slider-'+ ele.dataIndex);
+                        document.querySelector('#rating-'+ ele.dataIndex).textContent = s.value;
+                    };
                 }
             });
         })();
