@@ -26,9 +26,13 @@
               background: white;
             }
 
+    /*        .la-pages {
+                width: 100%;
+            }*/
+
             .lfrating {
-                font-size: 3em;
-                font-weight: bold;
+                font-size: 6em;
+                font-weight: bolder;
                 text-align: center;
                 width: 3em;
             }
@@ -36,6 +40,31 @@
             .area-header {
                 height: 100px;
             }
+
+            .flex-end-justified {
+                @apply(--layout-horizontal);
+                @apply(--layout-end-justified);
+            }
+
+            .flex-start-justified {
+                @apply(--layout-horizontal);
+                @apply(--layout-start-justified);
+            }
+
+            .flex-equal-justified {
+                @apply(--layout-horizontal);
+                @apply(--layout-justified);
+            }
+
+            .flex-vertical-center-justified {
+                @apply(--layout-vertical);
+                @apply(--layout-center-justified);
+            }
+
+            .big {
+                --iron-icon-height: 32px;
+                --iron-icon-width: 32px;
+              }
 
           @media (max-width: 600px) {
                 paper-material {
@@ -60,23 +89,25 @@
                 }
             }
 		</style>
-        <iron-pages class="la-pages" selected="0">
-            <template is="dom-repeat" items="{{areas}}">
-                <!-- <area-rating area="[[item]]" /> -->
-                <paper-material elevation="2" class="area-box">
-                    <div class="area-header">
-                        <h2>{{item.name}}</h2>
-                        <p>{{item.description}}</p>
-                    </div>
-                    <div class="centered">
-                        <paper-material id="rating-{{item.id}}" elevation="0" class="lfrating">3</paper-material>
-                        <paper-slider id="slider-{{item.id}}" data-index="{{item.id}}" min="1" max="5" value="3" pin snaps step="1"></paper-slider>
-                  </div>
-                </paper-material>    
-            </template>
-        </iron-pages>
-        <paper-button raised class="lfpre"><iron-icon icon="chevron-left"></iron-icon></paper-button>
-        <paper-button raised class="lfnext"><iron-icon icon="chevron-right"></iron-icon></paper-button>
+            <iron-pages class="la-pages" selected="0">
+                <template is="dom-repeat" items="{{areas}}">
+                    <!-- <area-rating area="[[item]]" /> -->
+                    <paper-material elevation="2" class="area-box">
+                        <div class="area-header">
+                            <h2>{{item.name}}</h2>
+                            <p>{{item.description}}</p>
+                        </div>
+                        <div class="centered">
+                            <paper-material id="rating-{{item.id}}" elevation="0" class="lfrating">3</paper-material>
+                            <paper-slider id="slider-{{item.id}}" data-index="{{item.id}}" min="1" max="5" value="3" pin step="1"></paper-slider>
+                      </div>
+                    </paper-material>    
+                </template>
+            </iron-pages>
+        <div class="container flex-equal-justified">
+            <paper-button raised class="lfpre"><iron-icon class="big" icon="chevron-left"></iron-icon></paper-button>
+            <paper-button raised class="lfnext"><iron-icon class="big" icon="chevron-right"></iron-icon></paper-button>
+        </div>
 	</template>
 	<script>
         (function()	{
@@ -152,7 +183,7 @@
                     document.addEventListener('WebComponentsReady', function() {
                         for(var i=0; i < self.areas.length; i++) {
                             var slider = this.querySelector('#slider-'+ self.areas[i].id);
-                            slider.addEventListener('change', self.updaterating); 
+                            slider.addEventListener('value-change', self.updaterating); 
                         }
                     });
 
